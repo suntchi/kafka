@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    bootstrap-servers: 192.168.226.128:9092
+    producer:
+      acks: -1
+      retries: 1
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      transaction-id-prefix: trans-
+      client-id: provider-0
+      properties:
+        # 序列化方式
+        partitioner.class: org.apache.kafka.clients.producer.internals.DefaultPartitioner
+        # ProducerBatch等待多长时间被发送，默认0
+        linger:
+          ms: 1
+      # 压缩方式，默认为null，增加网络id吞吐量，不过会增加延迟
+      compression-type: gzip

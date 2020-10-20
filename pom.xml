@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>api</module>
+		<module>provider</module>
+		<module>consumer</module>
+	</modules>
+    <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.0.RELEASE</version>
+	</parent>
+	<groupId>com.stc.kafka</groupId>
+	<artifactId>stc-kafka</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>stc-kafka</name>
+	<description>Demo kafka project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<zl.message.version>1.0.0.dev-SNAPSHOT</zl.message.version>
+		<dubbo.starter.version>0.2.0</dubbo.starter.version>
+		<leaf.version>1.0.1</leaf.version>
+		<guava.version>29.0-jre</guava.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<version>${spring-boot.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.kafka</groupId>
+				<artifactId>spring-kafka</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.jizhang.message</groupId>
+				<artifactId>message-api</artifactId>
+				<version>${zl.message.version}</version>
+			</dependency>
+
+			<!--dubbo starter-->
+			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo.starter.version}</version>
+			</dependency>
+
+			<!-- aop -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-aop</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+
+			<!-- leaf -->
+			<dependency>
+				<groupId>com.sankuai.inf.leaf</groupId>
+				<artifactId>leaf-core</artifactId>
+				<version>${leaf.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.mybatis</groupId>
+						<artifactId>mybatis</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
